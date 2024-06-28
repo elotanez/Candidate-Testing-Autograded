@@ -34,15 +34,26 @@ function gradeQuiz(candidateAnswers) {
 for (i = 0; i < correctAnswers.length; i++) {
   console.log(`You Answered: ${candidateAnswers[i]}`)
   console.log(`Correct Answer: ${correctAnswers[i]}`)
+  
 }
-
-
-  let grade;  //TODO 3.2 use this variable to calculate the candidates score.
-
-
+  let numOfCorrectAnswers = 0;
+  let numOfQuizQuestions = 5;
+    //TODO 3.2 use this variable to calculate the candidates score.
+  for (i = 0; i < correctAnswers.length; i++) {
+    if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()) {
+      numOfCorrectAnswers += 1;
+    }
+  }
+  let grade = numOfCorrectAnswers/numOfQuizQuestions*100;
+  console.log(`You answered ${numOfCorrectAnswers} out of ${numOfQuizQuestions} correctly. You have scored ${grade}%.`)
+  if (grade >= 80) {
+    console.log("You have passed!")
+  } else {
+    console.log("You have not passed.")
+  }
   return grade;
-}
-
+  }
+  
 function runProgram() {
   askForName();
   // TODO 1.1c: Greet candidate using their name //
